@@ -1,10 +1,15 @@
 <?php
+class disbursement 
+{
+    
+}
 
+//function to process the API call
 function callAPI($method, $url, $data){
     $curl = curl_init();
     switch ($method){
         case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POST, true);
             if ($data)
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         break;
@@ -32,11 +37,24 @@ function callAPI($method, $url, $data){
 }
 
 //GET API
+/* 
 $get_data=callAPI('GET', 'https://nextar.flip.id/disburse/5535152564', false);
 $response = json_decode($get_data, true);
-$errors = $response['response']['errors'];
-$data = $response['response']['data'][0];
-print_r($response);
-
+print_r($response);//print the API response
+*/
 //POST API
+
+$data_array = array(
+    "bank_code"=>"bni",
+    "account_number"=>"123456",
+    "amount"=>"10000",
+    "remark"=>"Transfer to Josh"
+);
+
+$url_data=http_build_query($data_array);//Urlify the array
+$make_call = callAPI('POST', 'https://nextar.flip.id/disburse', $url_data);
+$response = json_decode($make_call, true);
+print_r($response);
+print_r($url_data)
+
 ?>
