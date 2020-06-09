@@ -1,6 +1,6 @@
 ADSI (Automated Disbursement System Integration)
 
-This service is use for automate money withdrawal throgh every bank account for the seller.
+This service is use for automate money withdrawal through every bank account for the seller.
 
 Stack used:
 

@@ -1,7 +1,12 @@
 <?php
 class disbursement 
 {
-    
+ //class skeleton
+ public function callAPI()
+ 
+ public function getStatus()
+
+ public function postDisbursement()
 }
 
 //function to process the API call
