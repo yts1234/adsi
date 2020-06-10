@@ -51,7 +51,10 @@ class disbursement
  public function getStatus($idTransaction){
     $get_data=$this->callAPI('GET', 'https://nextar.flip.id/disburse/'.$idTransaction.'', false);
     $response = json_decode($get_data, true);
-    return $response;
+    require 'm_disbursement.php';
+    $trans1 = new M_disbursement($response);
+    $result = $trans1->getData();
+    return $result;
  }
 //function to make a transaction
  public function postDisbursement($bank_code, $account_number, 
@@ -66,7 +69,10 @@ class disbursement
     $url_data=http_build_query($data_array);//Urlify the array
     $make_call = $this->callAPI('POST', 'https://nextar.flip.id/disburse', $url_data);
     $response = json_decode($make_call, true);
-    return $response;
+    require 'm_disbursement.php';
+    $trans1 = new M_disbursement($response);
+    $result = $trans1->insertDB();
+    return $result;
  }
 }
 
@@ -85,8 +91,7 @@ if (isset($argc)){
 
 //print_r($disburse->postDisbursement());
 //print_r($disburse->getStatus(7315347024))
-//require 'm_disbursement.php';
-//$trans2 = new M_disbursement($response);
+
 //print_r($trans->getData());
 
 ?>
