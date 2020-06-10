@@ -20,7 +20,8 @@ try {
     $username, $password);
     $sql = "CREATE TABLE transaction (
         rec INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        ID INT NOT NULL,
+	    id BIGINT NOT NULL,
+	    status VARCHAR(10),
         amount FLOAT NOT NULL,
         timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         bank_code VARCHAR(5) NOT NULL,

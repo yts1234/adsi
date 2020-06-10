@@ -9,10 +9,12 @@ class M_disbursement{
     function __construct($initData){
         
         $this->data = $initData;
+        
     }
 
     public function insertDB(){
         require 'connection.php';
+    
         try {
             $sql = $conn->prepare("INSERT INTO transaction(
                 id, amount, status, timestamp, bank_code, 
