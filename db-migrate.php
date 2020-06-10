@@ -14,7 +14,7 @@ try{
     echo $sql."<br>". $e->getMessage();
 }
 
-//Create Table with scheme
+//Create Table structure
 try {
     $conn = new PDO("mysql:host=$severname;dbname=$dbname",
     $username, $password);
@@ -36,5 +36,5 @@ try {
 } catch (PDOException $e) {
     echo $sql."\n".$e->getMessage();
 }
-$conn = null;
+$conn = null;//close the connection
 ?>
