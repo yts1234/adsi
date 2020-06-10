@@ -1,14 +1,7 @@
 <?php
-//This config file is used for database connection to mysql
+require 'configuration.php';
 
-//Edit this code only!
-$severname = "localhost";//Your local or remote database url or FQDN
-$username = "root";//Username
-$password = "";//Password
-$dbname = "test";//Database name
-//End of configuration file
-
-//Be careful to modify below this!
+//Below are syntax for DB connection using PDO
 try {
     $conn = new PDO("mysql:host=$severname;dbname=$dbname",
     $username, $password);

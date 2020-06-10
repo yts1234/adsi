@@ -2,11 +2,17 @@
 class disbursement 
 {
  //class skeleton
- public function callAPI()
- 
- public function getStatus()
+ public function callAPI(){
 
- public function postDisbursement()
+ }
+ 
+ public function getStatus(){
+
+ }
+
+ public function postDisbursement(){
+
+ }
 }
 
 //function to process the API call
@@ -60,6 +66,6 @@ $url_data=http_build_query($data_array);//Urlify the array
 $make_call = callAPI('POST', 'https://nextar.flip.id/disburse', $url_data);
 $response = json_decode($make_call, true);
 print_r($response);
-print_r($url_data)
+
 
 ?>
